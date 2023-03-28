@@ -4,20 +4,20 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const cors = require('cors');
-const stockPricesRouter = require("./routes/stockPrices");
+const stockPricesRouter = require("./routesHandlers/stockPrices");
+const searchCompaniesRouteHandler = require("./routesHandlers/searchCompanies")
 
 // load middleware
 app.use(express.json());
 app.use(cors());
 
-app.use(
-  express.urlencoded({
-    extended: true,
-  })
-);
+app.use(express.urlencoded({extended: true}));
 
 // stock prices endpoint
-app.use("/stock-prices", stockPricesRouter);
+app.get("/stock-prices", stockPricesRouter);
+// search company by names
+app.get("/search-companies", searchCompaniesRouteHandler);
+// search by ticker symbol
 
 /* Error handler middleware */
 app.use((err, req, res, next) => {
