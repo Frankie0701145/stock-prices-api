@@ -7,7 +7,7 @@ module.exports  = async function (req, res, next) {
         let data = await stockPriceCompanyID.getStockPriceByCompanyId(companyId)
         res.json(data)
     }catch(err){
-        console.error(`Error while getting programming languages `, err.message);
+        console.error(`Error`, err.message);
         next(err);
     }
 }

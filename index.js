@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const cors = require('cors');
 const stockPricesRouter = require("./routesHandlers/stockPrices");
 const stockPriceCompanyIDRouter = require("./routesHandlers/stockPriceCompanyID.js");
@@ -30,5 +30,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+    console.log(`Example app listening at ${port}`);
 });
