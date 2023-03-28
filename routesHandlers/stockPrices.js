@@ -1,5 +1,3 @@
-const express = require('express');
-const router = express.Router();
 const stockPrices = require("../services/stockPrices")
 
 module.exports  = async function (req, res, next) {
